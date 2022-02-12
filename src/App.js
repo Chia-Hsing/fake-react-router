@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Router from './components/Router'
+import Route from './components/Route'
+import Switch from './components/Switch'
+import Link from './components/Link'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Router>
+                <div>
+                    <Link to="/">about</Link>
+                    <Link to="/2">user</Link>
+                    <Link to="/3">home</Link>
+                </div>
+                <Switch>
+                    <Route path="/">
+                        <One />
+                    </Route>
+                    <Route path="/2">
+                        <Twe />
+                    </Route>
+                    <Route path="/3">
+                        <Three />
+                    </Route>
+                </Switch>
+            </Router>
+        </div>
+    )
+}
+function One() {
+    return <h2>1</h2>
 }
 
-export default App;
+function Twe() {
+    return <h2>2</h2>
+}
+
+function Three() {
+    return <h2>3</h2>
+}
+
+export default App
